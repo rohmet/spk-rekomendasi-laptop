@@ -62,6 +62,56 @@ class Laptop {
         }
         return false;
     }
+
+    // FUNGSI SPK: Hitung SAW
+    public function getRecommendation($bobot_harga, $bobot_ram, $bobot_berat) {
+        // 1. Ambil Nilai MIN/MAX untuk Normalisasi (Cari nilai ekstrim di dataset)
+        // Kita butuh: Harga Termurah, Berat Teringan, dan RAM Terbesar
+        $q_minmax = "SELECT MIN(price) as min_price, 
+                             MIN(weight_kg) as min_weight, 
+                             MAX(ram_gb) as max_ram 
+                      FROM " . $this->table_name;
+        $res_minmax = $this->conn->query($q_minmax)->fetch_assoc();
+        
+        $min_price = $res_minmax['min_price'];
+        $min_weight = $res_minmax['min_weight'];
+        $max_ram = $res_minmax['max_ram'];
+
+        // 2. Ambil Semua Data Laptop
+        $query = "SELECT * FROM " . $this->table_name;
+        $result = $this->conn->query($query);
+        
+        $hasil_rekomendasi = [];
+
+        // 3. Looping Normalisasi & Hitung Skor
+        while($row = $result->fetch_assoc()) {
+            // A. Normalisasi
+            // Harga (Cost): Min / Nilai
+            $norm_harga = $min_price / $row['price'];
+            
+            // Berat (Cost): Min / Nilai
+            $norm_berat = $min_weight / $row['weight_kg'];
+            
+            // RAM (Benefit): Nilai / Max
+            $norm_ram = $row['ram_gb'] / $max_ram;
+
+            // B. Hitung Skor Akhir (Preferensi)
+            // Rumus: (Norm x Bobot) + (Norm x Bobot) ...
+            $skor_akhir = ($norm_harga * $bobot_harga) + 
+                          ($norm_ram * $bobot_ram) + 
+                          ($norm_berat * $bobot_berat);
+
+            // C. Masukkan skor ke array data
+            $row['skor_saw'] = $skor_akhir;
+            $hasil_rekomendasi[] = $row;
+        }
+
+        usort($hasil_rekomendasi, function($a, $b) {
+            return $b['skor_saw'] <=> $a['skor_saw'];
+        });
+
+        return array_slice($hasil_rekomendasi, 0, 15);
+    }
 }
 
 ?>
