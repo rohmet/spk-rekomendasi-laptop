@@ -15,6 +15,13 @@ class Laptop {
         $result = $this->conn->query($query);
         return $result;
     }
+
+    // FUNGSI: Ambil data
+    public function getAll() {
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY id_laptop DESC LIMIT 15";
+        $result = $this->conn->query($query);
+        return $result;
+    }
 }
 
 ?>
