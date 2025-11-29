@@ -85,7 +85,6 @@ class Laptop {
 
         // 3. Looping Normalisasi & Hitung Skor
         while($row = $result->fetch_assoc()) {
-            // A. Normalisasi
             // Harga (Cost): Min / Nilai
             $norm_harga = $min_price / $row['price'];
             
@@ -95,13 +94,13 @@ class Laptop {
             // RAM (Benefit): Nilai / Max
             $norm_ram = $row['ram_gb'] / $max_ram;
 
-            // B. Hitung Skor Akhir (Preferensi)
+            // Hitung Skor Akhir (Preferensi)
             // Rumus: (Norm x Bobot) + (Norm x Bobot) ...
             $skor_akhir = ($norm_harga * $bobot_harga) + 
                           ($norm_ram * $bobot_ram) + 
                           ($norm_berat * $bobot_berat);
 
-            // C. Masukkan skor ke array data
+            // Masukkan skor ke array data
             $row['skor_saw'] = $skor_akhir;
             $hasil_rekomendasi[] = $row;
         }
