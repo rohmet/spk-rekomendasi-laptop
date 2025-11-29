@@ -1,4 +1,3 @@
-
 ```
 spk-rekomendasi-laptop
 ├─ config
@@ -16,12 +15,15 @@ spk-rekomendasi-laptop
 │  ├─ Bookmark.php
 │  ├─ Laptop.php
 │  └─ User.php
+├─ project_structure.md
+├─ register.php
 ├─ rekomendasi.php
 ├─ simpan_laptop.php
 ├─ tambah_laptop.php
 └─ views
    ├─ admin
    │  └─ dashboard.php
-   └─ login.php
+   ├─ login.php
+   └─ register.php
 
 ```
