@@ -70,6 +70,22 @@
                 ?>
             </tbody>
         </table>
+
+        <div style="margin-top: 20px; text-align: center;">
+            <span style="margin-right: 15px;">
+                Halaman <?php echo $page; ?> dari <?php echo $total_pages; ?> 
+                (Total Data: <?php echo number_format($total_records); ?>)
+            </span>
+
+            <?php if($page > 1): ?>
+                <a href="dashboard.php?page=<?php echo $page - 1; ?>" class="btn" style="background:#6c757d;">&laquo; Sebelumnya</a>
+            <?php endif; ?>
+
+            <?php if($page < $total_pages): ?>
+                <a href="dashboard.php?page=<?php echo $page + 1; ?>" class="btn" style="background:#007bff;">Selanjutnya &raquo;</a>
+            <?php endif; ?>
+        </div>
+        <br><br>
     </div>
 
 </body>

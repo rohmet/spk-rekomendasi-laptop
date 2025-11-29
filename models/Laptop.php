@@ -23,6 +23,23 @@ class Laptop {
         return $result;
     }
 
+    // FUNGSI: HITUNG TOTAL DATA (Untuk Pagination)
+    public function getTotalCount() {
+        $query = "SELECT COUNT(*) as total FROM " . $this->table_name;
+        $result = $this->conn->query($query);
+        $row = $result->fetch_assoc();
+        return $row['total'];
+    }
+
+    // FUNGSI: AMBIL DATA DENGAN LIMIT (Pengganti getAll yang lama)
+    public function getLaptopsPaginated($start_from, $limit) {
+        $query = "SELECT * FROM " . $this->table_name . " ORDER BY id_laptop DESC LIMIT ?, ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ii", $start_from, $limit); // ii artinya dua integer
+        $stmt->execute();
+        return $stmt->get_result();
+    }
+
     // FUNGSI: Tambah Data (Create)
     public function insertLaptop($data) {
         $query = "INSERT INTO " . $this->table_name . " 
