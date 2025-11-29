@@ -36,6 +36,36 @@ class AuthController {
         }
     }
 
+    // FUNGSI: Logic Register
+    public function register() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = trim($_POST['username']);
+            $password = $_POST['password'];
+            $confirm_password = $_POST['confirm_password'];
+
+            if (empty($username) || empty($password)) {
+                return "Semua kolom wajib diisi!";
+            }
+
+            if ($password !== $confirm_password) {
+                return "Konfirmasi password tidak cocok!";
+            }
+
+            $userModel = new User();
+            $result = $userModel->register($username, $password);
+
+            if ($result === true) {
+                echo "<script>
+                        alert('Pendaftaran Berhasil! Silakan Login.');
+                        window.location.href='login.php';
+                      </script>";
+                exit;
+            } else {
+                return $result;
+            }
+        }
+    }
+
     public function logout() {
         session_start();
         session_destroy();

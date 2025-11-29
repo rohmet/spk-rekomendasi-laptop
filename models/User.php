@@ -31,5 +31,32 @@ class User {
         
         return false;
     }
+
+    // FUNGSI: Registrasi User
+    public function register($username, $password) {
+        $checkQuery = "SELECT id_user FROM " . $this->table_name . " WHERE username = ?";
+        $stmtCheck = $this->conn->prepare($checkQuery);
+        $stmtCheck->bind_param("s", $username);
+        $stmtCheck->execute();
+        
+        if ($stmtCheck->get_result()->num_rows > 0) {
+            return "Username sudah terpakai, silakan pilih yang lain.";
+        }
+
+        // Enkripsi Password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $role = 'user';
+
+        // Masukkan ke Database
+        $query = "INSERT INTO " . $this->table_name . " (username, password, role) VALUES (?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("sss", $username, $hashed_password, $role);
+
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return "Gagal mendaftar: " . $this->conn->error;
+        }
+    }
 }
 ?>
