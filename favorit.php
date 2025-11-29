@@ -30,7 +30,7 @@ $myLaptops = $bookmarkModel->getMyBookmarks($_SESSION['user_id']);
 <body>
 
 <div class="container">
-    <a href="rekomendasi.php" class="btn-back">← Kembali cari laptop</a>
+    <a href="index.php" class="btn-back">← Kembali cari laptop</a>
     
     <h2>❤️ Laptop Impian Saya</h2>
 
