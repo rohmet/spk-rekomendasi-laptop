@@ -98,6 +98,7 @@ if (isset($_POST['hitung'])) {
                     <th>RAM</th>
                     <th>Berat</th>
                     <th>Skor SAW</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,6 +113,12 @@ if (isset($_POST['hitung'])) {
                     <td><?php echo $laptop['ram_gb']; ?> GB</td>
                     <td><?php echo $laptop['weight_kg']; ?> Kg</td>
                     <td><span class="score-badge"><?php echo number_format($laptop['skor_saw'], 4); ?></span></td>
+                    <td>
+                        <a href="simpan_laptop.php?id=<?php echo $laptop['id_laptop']; ?>" 
+                        style="background:#ffc107; color:black; padding:5px 10px; text-decoration:none; border-radius:4px; font-size:12px;">
+                        ★ Simpan
+                        </a>
+                    </td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
