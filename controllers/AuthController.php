@@ -1,76 +1,81 @@
 <?php
-require_once __DIR__ . '/../models/User.php';
+// file: controllers/AuthController.php
+require_once 'models/User.php';
 
 class AuthController {
-    
+    private $userModel;
+
+    public function __construct() {
+        $this->userModel = new User();
+    }
+
     public function login() {
-        // Mulai Session
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
+        if (isset($_SESSION['user_id'])) {
+            header("Location: index.php");
+            exit;
         }
 
-        // Cek apakah form disubmit
+        $error_message = '';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-            $userModel = new User();
-            $userData = $userModel->login($username, $password);
+            $user = $this->userModel->login($username, $password);
 
-            if ($userData) {
-                // Simpan data user ke Session 
-                $_SESSION['user_id'] = $userData['id_user'];
-                $_SESSION['username'] = $userData['username'];
-                $_SESSION['role'] = $userData['role'];
+            if ($user) {
+                // Set Session
+                $_SESSION['user_id'] = $user['id_user'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
 
                 // Redirect sesuai Role
-                if ($userData['role'] === 'admin') {
-                    header("Location: dashboard.php");
+                if ($user['role'] == 'admin') {
+                    header("Location: index.php?controller=admin&action=dashboard");
                 } else {
                     header("Location: index.php");
                 }
                 exit;
             } else {
-                return "Username atau Password salah!";
+                $error_message = "Username atau Password salah!";
             }
         }
+
+        require 'views/auth/login.php'; 
     }
 
-    // FUNGSI: Logic Register
     public function register() {
+        if (isset($_SESSION['user_id'])) {
+            header("Location: index.php");
+            exit;
+        }
+
+        $error_message = '';
+        $success_message = '';
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = trim($_POST['username']);
+            $username = $_POST['username'];
             $password = $_POST['password'];
-            $confirm_password = $_POST['confirm_password'];
-
+            
             if (empty($username) || empty($password)) {
-                return "Semua kolom wajib diisi!";
-            }
-
-            if ($password !== $confirm_password) {
-                return "Konfirmasi password tidak cocok!";
-            }
-
-            $userModel = new User();
-            $result = $userModel->register($username, $password);
-
-            if ($result === true) {
-                echo "<script>
-                        alert('Pendaftaran Berhasil! Silakan Login.');
-                        window.location.href='login.php';
-                      </script>";
-                exit;
+                $error_message = "Semua kolom harus diisi!";
             } else {
-                return $result;
+                $result = $this->userModel->register($username, $password);
+
+                if ($result === true) {
+                    $success_message = "Registrasi berhasil! Silakan login.";
+                } else {
+                    $error_message = $result;
+                }
             }
         }
+
+        require 'views/auth/register.php';
     }
 
     public function logout() {
-        session_start();
         session_destroy();
-        header("Location: login.php");
+        header("Location: index.php?controller=auth&action=login");
         exit;
     }
 }
-?>

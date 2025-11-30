@@ -32,6 +32,19 @@ switch ($controllerName) {
         }
         break;
     
+    case 'auth':
+        require_once 'controllers/AuthController.php';
+        $controller = new AuthController();
+        
+        if ($action == 'login') {
+            $controller->login();
+        } elseif ($action == 'register') {
+            $controller->register();
+        } elseif ($action == 'logout') {
+            $controller->logout();
+        }
+        break;
+    
     default:
         echo "Halaman tidak ditemukan!";
         break;

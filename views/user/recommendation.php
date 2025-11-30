@@ -30,10 +30,13 @@
 <div class="container">
     <div class="nav-top">
         <a href="index.php">🏠 Home</a>
+
         <?php if(isset($_SESSION['user_id'])): ?>
-            <a href="logout.php">Logout</a>
+            <a href="index.php?controller=bookmark&action=index">❤️ Favorit</a>
+            
+            <a href="index.php?controller=auth&action=logout">Logout</a>
         <?php else: ?>
-            <a href="login.php">Login</a>
+            <a href="index.php?controller=auth&action=login">Login</a>
         <?php endif; ?>
     </div>
 
