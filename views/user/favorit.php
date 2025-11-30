@@ -1,16 +1,3 @@
-<?php
-session_start();
-require_once 'models/Bookmark.php';
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit;
-}
-
-$bookmarkModel = new Bookmark();
-$myLaptops = $bookmarkModel->getMyBookmarks($_SESSION['user_id']);
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -34,14 +21,16 @@ $myLaptops = $bookmarkModel->getMyBookmarks($_SESSION['user_id']);
     
     <h2>❤️ Laptop Impian Saya</h2>
 
-    <?php if ($myLaptops->num_rows > 0): ?>
-        <?php while($row = $myLaptops->fetch_assoc()): ?>
+    <?php if ($favorites->num_rows > 0): ?>
+        <?php while($row = $favorites->fetch_assoc()): ?>
             <div class="item">
                 <div class="item-info">
                     <h4><?php echo $row['brand'] . " " . $row['model_name']; ?></h4>
                     <p>Harga: Rp <?php echo number_format($row['price'], 0, ',', '.'); ?> | RAM: <?php echo $row['ram_gb']; ?>GB</p>
                 </div>
-                <a href="hapus_bookmark.php?id=<?php echo $row['id_bookmark']; ?>" class="btn-delete" onclick="return confirm('Hapus dari favorit?')">Hapus</a>
+                <a href="index.php?controller=bookmark&action=delete&id=<?php echo $row['id_bookmark']; ?>" 
+                   class="btn-delete" 
+                   onclick="return confirm('Hapus dari favorit?')">Hapus</a>
             </div>
         <?php endwhile; ?>
     <?php else: ?>

@@ -22,8 +22,13 @@ switch ($controllerName) {
     case 'bookmark':
         require_once 'controllers/BookmarkController.php';
         $controller = new BookmarkController();
-        if ($action == 'simpan') {
+        
+        if ($action == 'index') {
+            $controller->index();
+        } elseif ($action == 'simpan') {
             $controller->store($id);
+        } elseif ($action == 'delete') {
+            $controller->delete($id);
         }
         break;
     
