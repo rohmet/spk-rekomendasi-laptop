@@ -9,8 +9,6 @@ spk-rekomendasi-laptop
 │  └─ LaptopController.php
 ├─ dashboard.php
 ├─ edit_laptop.php
-├─ favorit.php
-├─ hapus_bookmark.php
 ├─ hapus_laptop.php
 ├─ index.php
 ├─ login.php
@@ -21,7 +19,6 @@ spk-rekomendasi-laptop
 │  └─ User.php
 ├─ project_structure.md
 ├─ register.php
-├─ simpan_laptop.php
 ├─ tambah_laptop.php
 └─ views
    ├─ admin
@@ -30,6 +27,7 @@ spk-rekomendasi-laptop
    ├─ login.php
    ├─ register.php
    └─ user
+      ├─ favorit.php
       └─ recommendation.php
 
 ```
