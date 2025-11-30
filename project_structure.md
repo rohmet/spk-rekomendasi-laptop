@@ -17,7 +17,8 @@ spk-rekomendasi-laptop
    ├─ admin
    │  ├─ create_laptop.php
    │  ├─ dashboard.php
-   │  └─ edit_laptop.php
+   │  ├─ edit_laptop.php
+   │  └─ tambah_laptop.php
    ├─ auth
    │  ├─ login.php
    │  └─ register.php
