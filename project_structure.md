@@ -1,10 +1,14 @@
+
 ```
 spk-rekomendasi-laptop
 ├─ config
 │  └─ database.php
 ├─ controllers
-│  └─ AuthController.php
+│  ├─ AuthController.php
+│  ├─ BookmarkController.php
+│  └─ LaptopController.php
 ├─ dashboard.php
+├─ edit_laptop.php
 ├─ favorit.php
 ├─ hapus_bookmark.php
 ├─ hapus_laptop.php
@@ -17,13 +21,15 @@ spk-rekomendasi-laptop
 │  └─ User.php
 ├─ project_structure.md
 ├─ register.php
-├─ rekomendasi.php
 ├─ simpan_laptop.php
 ├─ tambah_laptop.php
 └─ views
    ├─ admin
-   │  └─ dashboard.php
+   │  ├─ dashboard.php
+   │  └─ edit_laptop.php
    ├─ login.php
-   └─ register.php
+   ├─ register.php
+   └─ user
+      └─ recommendation.php
 
 ```
