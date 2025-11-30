@@ -44,6 +44,23 @@ switch ($controllerName) {
             $controller->logout();
         }
         break;
+
+    case 'admin':
+        require_once 'controllers/AdminController.php';
+        $controller = new AdminController();
+
+        if ($action == 'index' || $action == 'dashboard') {
+            $controller->index();       // Dashboard
+        } elseif ($action == 'create') {
+            $controller->create();      // Form Tambah
+        } elseif ($action == 'store') {
+            $controller->store();       // Proses Simpan
+        } elseif ($action == 'edit') {
+            $controller->edit($id);     // Form Edit
+        } elseif ($action == 'update') {
+            $controller->update($id);   // Proses Update
+        }
+        break;
     
     default:
         echo "Halaman tidak ditemukan!";
