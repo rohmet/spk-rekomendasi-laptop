@@ -83,4 +83,12 @@ class AdminController {
             }
         }
     }
+
+    public function delete($id) {
+        if ($this->laptopModel->deleteLaptop($id)) {
+            header("Location: index.php?controller=admin&action=index");
+        } else {
+            echo "Gagal menghapus data.";
+        }
+    }
 }

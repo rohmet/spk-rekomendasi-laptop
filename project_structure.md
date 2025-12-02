@@ -1,6 +1,9 @@
 ```
 spk-rekomendasi-laptop
 ├─ assets
+│  ├─ css
+│  │  └─ style.css
+│  └─ js
 ├─ config
 │  └─ database.php
 ├─ controllers
@@ -22,6 +25,9 @@ spk-rekomendasi-laptop
    ├─ auth
    │  ├─ login.php
    │  └─ register.php
+   ├─ templates
+   │  ├─ footer.php
+   │  └─ header.php
    └─ user
       ├─ favorit.php
       └─ recommendation.php

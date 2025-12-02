@@ -62,6 +62,8 @@ switch ($controllerName) {
             $controller->edit($id);
         } elseif ($action == 'update') {
             $controller->update($id);
+        } elseif ($action == 'delete') {
+            $controller->delete($id);
         }
         break;
     

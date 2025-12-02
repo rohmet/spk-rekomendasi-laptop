@@ -1,81 +1,62 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Laptop</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 20px; background: #f4f6f9; }
-        .container { background: white; max-width: 600px; margin: auto; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h2 { text-align: center; margin-bottom: 25px; color: #333; }
-        .form-group { margin-bottom: 15px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; color: #555; }
-        input { width: 100%; padding: 10px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
-        
-        /* Tombol Update */
-        .btn-save { background: #ffc107; color: black; padding: 12px; width: 100%; border: none; cursor: pointer; font-weight: bold; font-size: 16px; border-radius: 4px; transition: 0.3s; }
-        .btn-save:hover { background: #e0a800; }
-        
-        /* Tombol Batal */
-        .btn-back { display: block; text-align: center; margin-top: 15px; text-decoration: none; color: #666; }
-        .btn-back:hover { color: #333; text-decoration: underline; }
-    </style>
-</head>
-<body>
+<?php require 'views/templates/header.php'; ?>
 
-<div class="container">
-    <h2>Edit Data Laptop</h2>
-    
-    <form action="index.php?controller=admin&action=update&id=<?php echo $laptop['id_laptop']; ?>" method="POST">
+<div class="card-form">
+    <div style="margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+        <h2>Edit Data Laptop</h2>
+        <p style="color: #666;">Ubah spesifikasi laptop: <b><?= htmlspecialchars($laptop['model_name']); ?></b></p>
+    </div>
+
+    <form action="index.php?controller=admin&action=update&id=<?= $laptop['id_laptop']; ?>" method="POST">
         
         <div class="form-group">
-            <label>Brand</label>
-            <input type="text" name="brand" value="<?php echo htmlspecialchars($laptop['brand']); ?>" required>
-        </div>
-        <div class="form-group">
-            <label>Model</label>
-            <input type="text" name="model_name" value="<?php echo htmlspecialchars($laptop['model_name']); ?>" required>
-        </div>
-        <div class="form-group">
-            <label>Harga (Rp)</label>
-            <input type="number" name="price" value="<?php echo $laptop['price']; ?>" required>
-        </div>
-        <div class="form-group">
-            <label>RAM (GB)</label>
-            <input type="number" name="ram_gb" value="<?php echo $laptop['ram_gb']; ?>" required>
-        </div>
-        <div class="form-group">
-            <label>Berat (Kg)</label>
-            <input type="number" step="0.01" name="weight_kg" value="<?php echo $laptop['weight_kg']; ?>" required>
+            <label for="brand">Brand / Merek</label>
+            <input type="text" name="brand" id="brand" class="form-control" 
+                   value="<?= htmlspecialchars($laptop['brand']); ?>" required>
         </div>
 
-        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-
         <div class="form-group">
-            <label>Processor</label>
-            <input type="text" name="processor" value="<?php echo htmlspecialchars($laptop['processor']); ?>">
-        </div>
-        <div class="form-group">
-            <label>GPU / VGA</label>
-            <input type="text" name="gpu" value="<?php echo htmlspecialchars($laptop['gpu']); ?>">
-        </div>
-        <div class="form-group">
-            <label>Resolusi Layar</label>
-            <input type="text" name="screen_resolution" value="<?php echo htmlspecialchars($laptop['screen_resolution']); ?>">
-        </div>
-        <div class="form-group">
-            <label>Tipe Memori</label>
-            <input type="text" name="memory_type" value="<?php echo htmlspecialchars($laptop['memory_type']); ?>">
-        </div>
-        <div class="form-group">
-            <label>Sistem Operasi</label>
-            <input type="text" name="os" value="<?php echo htmlspecialchars($laptop['os']); ?>">
+            <label for="model_name">Nama Model / Tipe</label>
+            <input type="text" name="model_name" id="model_name" class="form-control" 
+                   value="<?= htmlspecialchars($laptop['model_name']); ?>" required>
         </div>
 
-        <button type="submit" class="btn-save">Update Perubahan</button>
-        
-        <a href="index.php?controller=admin&action=index" class="btn-back">Batal</a>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="form-group">
+                <label for="price">Harga (Rp)</label>
+                <input type="number" name="price" id="price" class="form-control" 
+                       value="<?= htmlspecialchars($laptop['price']); ?>" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="ram_gb">RAM (GB)</label>
+                <input type="number" name="ram_gb" id="ram_gb" class="form-control" 
+                       value="<?= htmlspecialchars($laptop['ram_gb']); ?>" step="0.1" required>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <div class="form-group">
+                <label for="weight_kg">Berat (Kg)</label>
+                <input type="number" name="weight_kg" id="weight_kg" class="form-control" 
+                       value="<?= htmlspecialchars($laptop['weight_kg']); ?>" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="processor">Processor</label>
+                <input type="text" name="processor" id="processor" class="form-control" 
+                       value="<?= htmlspecialchars($laptop['processor'] ?? ''); ?>" required>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary" style="padding: 10px 25px; font-size: 1rem;">
+                <i class="fas fa-save"></i> Update Data
+            </button>
+            <a href="index.php?controller=admin&action=dashboard" class="btn btn-secondary" style="padding: 10px 25px; font-size: 1rem;">
+                Batal
+            </a>
+        </div>
     </form>
 </div>
 
-</body>
-</html>
+<?php require 'views/templates/footer.php'; ?>
