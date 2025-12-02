@@ -1,5 +1,6 @@
 ```
 spk-rekomendasi-laptop
+├─ assets
 ├─ config
 │  └─ database.php
 ├─ controllers
@@ -17,8 +18,7 @@ spk-rekomendasi-laptop
    ├─ admin
    │  ├─ create_laptop.php
    │  ├─ dashboard.php
-   │  ├─ edit_laptop.php
-   │  └─ tambah_laptop.php
+   │  └─ edit_laptop.php
    ├─ auth
    │  ├─ login.php
    │  └─ register.php
