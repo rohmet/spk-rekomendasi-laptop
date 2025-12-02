@@ -11,7 +11,7 @@ require 'views/templates/header.php';
         </p>
     </div>
     <a href="index.php?controller=admin&action=create" class="btn btn-primary">
-        <i class="fas fa-plus"></i> + Tambah Laptop
+        <i class="fas fa-plus"></i> Tambah Unit Baru
     </a>
 </div>
 
@@ -26,44 +26,39 @@ require 'views/templates/header.php';
         <thead>
             <tr>
                 <th width="5%">No</th>
-                <th width="20%">Brand & Model</th>
-                <th width="20%">Harga (Rp)</th>
-                <th width="10%">RAM</th>
-                <th width="15%">Berat</th>
-                <th width="20%">Processor</th>
-                <th width="20%">Aksi</th>
+                <th width="25%">Unit Laptop</th>
+                <th width="15%">Spesifikasi</th>
+                <th width="15%">Processor</th>
+                <th width="20%">Harga</th>
+                <th width="10%" style="text-align: right;">Aksi</th>
             </tr>
         </thead>
         <tbody>
             <?php 
-            // Menghitung nomor urut (jika ada pagination, jika tidak mulai dari 1)
             $no = isset($start_from) ? $start_from + 1 : 1; 
             ?>
 
             <?php if (!empty($laptops)): ?>
                 <?php foreach ($laptops as $laptop): ?>
                 <tr>
-                    <td><?= $no++; ?></td>
+                    <td><span style="color: var(--text-secondary); font-weight: 500;"><?= $no++; ?></span></td>
                     <td>
-                        <span style="font-weight: bold; font-size: 1rem;">
-                            <?= htmlspecialchars($laptop['brand']); ?>
+                        <span class="data-primary"><?= htmlspecialchars($laptop['brand']); ?></span>
+                        <span class="data-secondary"><?= htmlspecialchars($laptop['model_name']); ?></span>
+                    </td>
+                    <td>
+                        <div style="font-size: 13px; color: var(--text-secondary);">
+                            <i class="fas fa-memory" style="width: 16px;"></i> <?= htmlspecialchars($laptop['ram_gb']); ?> GB RAM<br>
+                            <i class="fas fa-weight-hanging" style="width: 16px; margin-top: 4px;"></i> <?= htmlspecialchars($laptop['weight_kg']); ?> Kg
+                        </div>
+                    </td>
+                    <td>
+                        <span style="font-size: 14px; font-weight: 500;"><?= htmlspecialchars($laptop['processor']); ?></span>
+                    </td>
+                    <td>
+                        <span style="color: var(--accent-orange); font-weight: 700;">
+                            Rp <?= number_format($laptop['price'], 0, ',', '.'); ?>
                         </span>
-                        <br>
-                        <small style="color: #666;">
-                            <?= htmlspecialchars($laptop['model_name']); ?>
-                        </small>
-                    </td>
-                    <td>
-                        Rp <?= number_format($laptop['price'], 0, ',', '.'); ?>
-                    </td>
-                    <td>
-                        <?= htmlspecialchars($laptop['ram_gb']); ?> GB
-                    </td>
-                    <td>
-                        <?= htmlspecialchars($laptop['weight_kg']); ?> Kg
-                    </td>
-                    <td>
-                        <?= htmlspecialchars($laptop['processor']); ?>
                     </td>
                     <td>
                         <div class="action-buttons">

@@ -1,12 +1,12 @@
 :root {
   /* --- PALET WARNA DASAR --- */
-  --bg-canvas: #fdfbf8;
+  --bg-canvas: #f8f6f1;
   --bg-surface: #ffffff;
+  --bg-inverse: #121212;
 
   /* Text */
   --text-primary: #111111;
   --text-secondary: #6b6b6b;
-  --text-light: #e0e0e0;
   --text-white: #ffffff;
 
   /* Komponen UI (Navbar, Table) */
@@ -110,7 +110,7 @@ ul {
 }
 
 .nav-links li a:not(.nav-btn) {
-  color: var(--text-light);
+  color: var(--text-white);
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -151,6 +151,141 @@ ul {
   color: var(--text-white);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+/* Buttons (Legacy/Umum) */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--text-white);
+}
+
+/* --- TABLES (Minimalist Horizon Style) --- */
+.table-responsive {
+  overflow-x: auto;
+  margin-top: 32px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate; /* Agar border-radius row berfungsi */
+  border-spacing: 0 8px; /* Jarak antar baris */
+}
+
+.table th {
+  text-align: left;
+  padding: 16px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.table td {
+  background: #fff;
+  padding: 20px 16px;
+  vertical-align: middle;
+  font-size: 14px;
+  border-top: 1px solid #f5f5f5;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.table tr td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  border-left: 1px solid #f5f5f5;
+}
+.table tr td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-right: 1px solid #f5f5f5;
+}
+
+.table tr:hover td {
+  background: #fafafa; /* Hover halus */
+}
+
+/* Data Styling di dalam Tabel */
+.data-primary {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 15px;
+  display: block;
+}
+.data-secondary {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+  display: block;
+}
+
+/* --- BAGIAN TOMBOL AKSI (Sudah Benar) --- */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  color: var(--text-white);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-edit {
+  background-color: var(--color-primary);
+}
+.btn-edit:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: var(--color-danger);
+}
+.btn-delete:hover {
+  background-color: var(--color-danger-hover);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: auto;
 }
 
 /* --- MEDIA QUERY (Tampilan Mobile/Tablet < 768px) --- */
@@ -207,170 +342,4 @@ ul {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Buttons (Legacy/Umum) */
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  border: none;
-  transition: 0.3s;
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  color: var(--text-white);
-}
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-}
-.btn-sm {
-  padding: 5px 10px;
-  font-size: 0.8rem;
-}
-.btn-danger {
-  background-color: var(--color-danger);
-  color: var(--text-white);
-}
-
-/* Tables */
-.table-responsive {
-  overflow-x: auto;
-}
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 15px;
-}
-.table th,
-.table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid var(--border-color);
-}
-.table th {
-  background-color: var(--table-head-bg);
-  font-weight: 600;
-}
-.table tr:hover {
-  background-color: var(--table-hover-bg);
-}
-
-/* --- BAGIAN TOMBOL AKSI (Sudah Benar) --- */
-.action-buttons {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-.btn-action {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  color: var(--text-white);
-  transition: all 0.2s ease;
-  text-decoration: none;
-}
-
-.btn-edit {
-  background-color: var(--color-primary);
-}
-.btn-edit:hover {
-  background-color: var(--color-primary-hover);
-  transform: translateY(-1px);
-}
-
-.btn-delete {
-  background-color: var(--color-danger);
-}
-.btn-delete:hover {
-  background-color: var(--color-danger-hover);
-  transform: translateY(-1px);
-}
-
-/* --- FORM STYLING (Untuk Create/Edit) --- */
-.card-form {
-  background: var(--bg-surface);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-}
-
-.form-control {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 1rem;
-  color: var(--text-primary);
-  background-color: #fff;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  transition: all 0.2s ease;
-  font-family: inherit;
-}
-
-.form-control:focus {
-  outline: none;
-  border-color: var(--accent-orange);
-  box-shadow: 0 0 0 3px rgba(206, 48, 0, 0.1);
-}
-
-textarea.form-control {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.form-actions {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 1px solid var(--border-color);
-}
-
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
-  text-decoration: none;
-}
-.btn-secondary:hover {
-  background-color: #5a6268;
-}
-
-/* Validasi style sederhana */
-.text-danger {
-  color: var(--color-danger);
-  font-size: 0.85rem;
-  margin-top: 5px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 20px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-top: auto;
 }
