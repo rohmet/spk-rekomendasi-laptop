@@ -20,6 +20,7 @@ class AuthController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'];
             $password = $_POST['password'];
+            $remember = isset($_POST['remember']);
 
             $user = $this->userModel->login($username, $password);
 
@@ -28,6 +29,10 @@ class AuthController {
                 $_SESSION['user_id'] = $user['id_user'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
+
+                if ($remember) {
+                    setcookie('user_login', $user['id_user'], time() + (86400 * 30), "/");
+                }
 
                 // Redirect sesuai Role
                 if ($user['role'] == 'admin') {
@@ -71,6 +76,24 @@ class AuthController {
         }
 
         require 'views/auth/register.php';
+    }
+
+    public function checkAutoLogin() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['user_id']) && isset($_COOKIE['user_login'])) {
+            $userIdFromCookie = $_COOKIE['user_login'];
+                        
+            $user = $this->userModel->getById($userIdFromCookie);
+            
+            if ($user) {
+                $_SESSION['user_id'] = $user['id_user'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role'];
+            }
+        }
     }
 
     public function logout() {

@@ -58,5 +58,14 @@ class User {
             return "Gagal mendaftar: " . $this->conn->error;
         }
     }
+
+    public function getById($id) {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE id_user = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc();
+    }
 }
 ?>

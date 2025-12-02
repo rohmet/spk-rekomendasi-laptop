@@ -2,7 +2,12 @@
 session_start();
 require_once 'config/database.php';
 
-// Ambil parameter dari URL (Contoh: index.php?controller=laptop&action=delete&id=5)
+require_once 'controllers/AuthController.php';
+
+$authController = new AuthController();
+$authController->checkAutoLogin();
+
+// Routing logic
 $controllerName = isset($_GET['controller']) ? $_GET['controller'] : 'laptop';
 $action         = isset($_GET['action']) ? $_GET['action'] : 'index';
 $id             = isset($_GET['id']) ? $_GET['id'] : null;
@@ -33,15 +38,13 @@ switch ($controllerName) {
         break;
     
     case 'auth':
-        require_once 'controllers/AuthController.php';
-        $controller = new AuthController();
-        
+       
         if ($action == 'login') {
-            $controller->login();
+            $authController->login();
         } elseif ($action == 'register') {
-            $controller->register();
+            $authController->register();
         } elseif ($action == 'logout') {
-            $controller->logout();
+            $authController->logout();
         }
         break;
 
@@ -50,15 +53,15 @@ switch ($controllerName) {
         $controller = new AdminController();
 
         if ($action == 'index' || $action == 'dashboard') {
-            $controller->index();       // Dashboard
+            $controller->index();
         } elseif ($action == 'create') {
-            $controller->create();      // Form Tambah
+            $controller->create();
         } elseif ($action == 'store') {
-            $controller->store();       // Proses Simpan
+            $controller->store();
         } elseif ($action == 'edit') {
-            $controller->edit($id);     // Form Edit
+            $controller->edit($id);
         } elseif ($action == 'update') {
-            $controller->update($id);   // Proses Update
+            $controller->update($id);
         }
         break;
     
