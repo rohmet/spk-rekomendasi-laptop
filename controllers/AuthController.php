@@ -98,6 +98,9 @@ class AuthController {
 
     public function logout() {
         session_destroy();
+        if (isset($_COOKIE['user_login'])) {
+            setcookie('user_login', '', time() - 3600, "/");
+        }
         header("Location: index.php?controller=auth&action=login");
         exit;
     }

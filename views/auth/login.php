@@ -36,6 +36,11 @@
                 <input type="password" name="password" required>
             </div>
             <button type="submit" class="btn">Masuk</button>
+            
+            <div>
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember">Ingat saya</label>
+            </div>
         </form>
         
         <div style="text-align: center; margin-top: 15px; font-size: 14px;">
