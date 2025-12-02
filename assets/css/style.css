@@ -1,0 +1,307 @@
+:root {
+  /* --- PALET WARNA DASAR --- */
+  --bg-canvas: #fdfbf8;
+  --bg-surface: #ffffff;
+
+  /* Text */
+  --text-primary: #111111;
+  --text-secondary: #6b6b6b;
+  --text-light: #e0e0e0;
+  --text-white: #ffffff;
+
+  /* Komponen UI (Navbar, Table) */
+  --nav-bg: #171717;
+  --nav-hover: rgba(255, 255, 255, 0.1);
+  --border-color: #ddd;
+  --table-head-bg: #f1f1f1;
+  --table-hover-bg: #f9f9f9;
+
+  /* Brand Colors */
+  --accent-orange: #ce3000;
+  --accent-orange-hover: #ff6207;
+
+  /* Action Colors (Sudah Benar) */
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-danger: #dc3545;
+  --color-danger-hover: #a71d2a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* Layout */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  padding-top: 100px;
+}
+.main-content {
+  min-height: 80vh;
+  background: var(--bg-surface);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Navbar */
+.nav-pill {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--nav-bg);
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 900px;
+  min-width: 0;
+  z-index: 1000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.nav-logo {
+  color: var(--text-white);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li a:not(.nav-btn) {
+  color: var(--text-light);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.nav-links li a:not(.nav-btn):hover {
+  color: var(--text-white);
+  background: var(--nav-hover);
+}
+
+.nav-btn {
+  background: var(--accent-orange);
+  color: var(--text-white) !important;
+  border-radius: 8px;
+  padding: 8px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  border: 2px solid var(--accent-orange);
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: var(--accent-orange);
+  border-color: var(--accent-orange-hover);
+  transform: translateY(-1px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-white);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- MEDIA QUERY (Tampilan Mobile/Tablet < 768px) --- */
+@media (max-width: 768px) {
+  .nav-pill {
+    top: 15px; /* Jarak atas lebih kecil */
+    width: 94%; /* Lebih lebar di HP */
+    padding: 15px 20px;
+    flex-wrap: wrap; /* Izinkan elemen turun ke bawah */
+  }
+
+  .mobile-menu-btn {
+    display: block; /* Munculkan tombol hamburger */
+  }
+
+  /* Sembunyikan menu secara default di HP */
+  .nav-links {
+    display: none;
+    width: 100%; /* Menu mengambil lebar penuh */
+    flex-direction: column; /* Link disusun ke bawah */
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Garis pemisah */
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  /* Class .active ditambahkan lewat JS saat hamburger diklik */
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Link & Button jadi full width di menu mobile */
+  .nav-links li a:not(.nav-btn),
+  .nav-btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Animasi Menu Dropdown */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons (Legacy/Umum) */
+.btn {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--text-white);
+}
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+.btn-danger {
+  background-color: var(--color-danger);
+  color: var(--text-white);
+}
+
+/* Tables */
+.table-responsive {
+  overflow-x: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+.table th,
+.table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+.table th {
+  background-color: var(--table-head-bg);
+  font-weight: 600;
+}
+.table tr:hover {
+  background-color: var(--table-hover-bg);
+}
+
+/* --- BAGIAN TOMBOL AKSI (Sudah Benar) --- */
+.action-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.btn-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  color: var(--text-white);
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-edit {
+  background-color: var(--color-primary);
+}
+.btn-edit:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-delete {
+  background-color: var(--color-danger);
+}
+.btn-delete:hover {
+  background-color: var(--color-danger-hover);
+  transform: translateY(-1px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: auto;
+}

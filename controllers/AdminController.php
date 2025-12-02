@@ -13,7 +13,7 @@ class AdminController {
     }
 
     public function index() {
-        $limit = 15;
+        $limit = 8;
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $start_from = ($page > 1) ? ($page * $limit) - $limit : 0;
 
