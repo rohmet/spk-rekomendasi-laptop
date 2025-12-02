@@ -1,12 +1,12 @@
 <?php 
-// 1. Panggil Header (Memuat Navbar & CSS)
+// 1. Panggil Header
 require 'views/templates/header.php'; 
 ?>
 
-<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+<div class="page-header">
     <div>
         <h2>Kelola Data Laptop</h2>
-        <p style="color: #666; font-size: 0.9rem; margin-top: 5px;">
+        <p class="header-meta">
             Total Data: <b><?= isset($total_records) ? number_format($total_records) : 0; ?></b> laptop.
         </p>
     </div>
@@ -16,7 +16,7 @@ require 'views/templates/header.php';
 </div>
 
 <?php if (isset($_GET['msg'])): ?>
-    <div style="background: #d4edda; color: #155724; padding: 12px; margin-bottom: 20px; border-radius: 6px; border: 1px solid #c3e6cb;">
+    <div class="alert alert-success">
         <i class="fas fa-check-circle"></i> <?= htmlspecialchars($_GET['msg']); ?>
     </div>
 <?php endif; ?>
@@ -27,10 +27,10 @@ require 'views/templates/header.php';
             <tr>
                 <th width="5%">No</th>
                 <th width="25%">Unit Laptop</th>
-                <th width="15%">Spesifikasi</th>
+                <th width="20%">Spesifikasi</th>
                 <th width="15%">Processor</th>
                 <th width="20%">Harga</th>
-                <th width="10%" style="text-align: right;">Aksi</th>
+                <th width="15%" style="text-align: right;">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -41,22 +41,22 @@ require 'views/templates/header.php';
             <?php if (!empty($laptops)): ?>
                 <?php foreach ($laptops as $laptop): ?>
                 <tr>
-                    <td><span style="color: var(--text-secondary); font-weight: 500;"><?= $no++; ?></span></td>
+                    <td><span class="table-no"><?= $no++; ?></span></td>
                     <td>
                         <span class="data-primary"><?= htmlspecialchars($laptop['brand']); ?></span>
                         <span class="data-secondary"><?= htmlspecialchars($laptop['model_name']); ?></span>
                     </td>
                     <td>
-                        <div style="font-size: 13px; color: var(--text-secondary);">
-                            <i class="fas fa-memory" style="width: 16px;"></i> <?= htmlspecialchars($laptop['ram_gb']); ?> GB RAM<br>
-                            <i class="fas fa-weight-hanging" style="width: 16px; margin-top: 4px;"></i> <?= htmlspecialchars($laptop['weight_kg']); ?> Kg
+                        <div class="spec-detail">
+                            <i class="fas fa-memory spec-icon"></i> <?= htmlspecialchars($laptop['ram_gb']); ?> GB RAM<br>
+                            <div style="height: 4px;"></div> <i class="fas fa-weight-hanging spec-icon"></i> <?= htmlspecialchars($laptop['weight_kg']); ?> Kg
                         </div>
                     </td>
                     <td>
                         <span style="font-size: 14px; font-weight: 500;"><?= htmlspecialchars($laptop['processor']); ?></span>
                     </td>
                     <td>
-                        <span style="color: var(--accent-orange); font-weight: 700;">
+                        <span class="price-tag">
                             Rp <?= number_format($laptop['price'], 0, ',', '.'); ?>
                         </span>
                     </td>
@@ -78,7 +78,7 @@ require 'views/templates/header.php';
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="7" style="text-align: center; padding: 30px; color: #888;">
+                    <td colspan="6" class="empty-state">
                         Belum ada data laptop. Silakan tambah data baru.
                     </td>
                 </tr>
@@ -88,15 +88,15 @@ require 'views/templates/header.php';
 </div>
 
 <?php if (isset($total_pages) && $total_pages > 1): ?>
-<div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+<div class="pagination-container">
     
     <?php if ($page > 1): ?>
-        <a href="index.php?controller=admin&action=index&page=<?= $page - 1; ?>" class="btn btn-sm btn-primary" style="background: #6c757d;">
+        <a href="index.php?controller=admin&action=index&page=<?= $page - 1; ?>" class="btn btn-sm btn-secondary">
             &laquo; Sebelumnya
         </a>
     <?php endif; ?>
 
-    <span style="padding: 5px 15px; background: #eee; border-radius: 4px; display: flex; align-items: center;">
+    <span class="pagination-info">
         Halaman <?= $page; ?> dari <?= $total_pages; ?>
     </span>
 
