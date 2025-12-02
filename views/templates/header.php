@@ -36,6 +36,7 @@
             </li>
 
         <?php else: ?>
+            <li><a href="index.php?controller=laptop&action=index">Home</a></li>
             <li><a href="index.php?controller=auth&action=login">Login</a></li>
             <li><a href="index.php?controller=auth&action=register" class="nav-btn">Daftar</a></li>
         <?php endif; ?>

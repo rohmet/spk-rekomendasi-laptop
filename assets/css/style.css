@@ -437,6 +437,105 @@ ul {
   }
 }
 
+/* --- AUTHENTICATION PAGES (Login/Register) --- */
+
+/* Body khusus untuk halaman auth agar centering sempurna */
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-canvas);
+  padding: 20px;
+}
+
+/* Kartu Login/Register */
+.auth-card {
+  background: var(--bg-surface);
+  width: 100%;
+  max-width: 400px;
+  padding: 40px;
+  border-radius: 16px;
+  /* Shadow lembut tapi elegan */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Header di dalam Auth Card (Logo & Judul) */
+.auth-header {
+  margin-bottom: 30px;
+}
+
+.auth-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.auth-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* Checkbox "Ingat Saya" */
+.form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-align: left;
+}
+.form-check input {
+  accent-color: var(--accent-orange); /* Warna checkbox oranye */
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+/* Tombol Full Width untuk Login */
+.btn-block {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Link Footer (Daftar / Lupa Password) */
+.auth-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.auth-footer a {
+  color: var(--accent-orange);
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.auth-footer a:hover {
+  color: var(--accent-orange-hover);
+  text-decoration: underline;
+}
+
+/* Pesan Error di Auth */
+.alert-error {
+  background: #fde8e8;
+  color: #c81e1e;
+  border: 1px solid #fbd5d5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
 /* Footer */
 footer {
   text-align: center;
