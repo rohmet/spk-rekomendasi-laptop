@@ -1,0 +1,147 @@
+/* --- BUTTONS --- */
+.btn-brutal {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 15px 30px;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-block;
+}
+.btn-brutal:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* --- CONTROL PANEL (FILTER BOX) --- */
+.control-panel {
+  border: var(--brutal-border);
+  background: #fff;
+  margin-bottom: 60px;
+}
+
+.panel-header {
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-body {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+/* --- INPUT RANGE CUSTOM --- */
+.brutal-range input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  margin-top: 15px;
+}
+.brutal-range input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+/* --- WINDOW CARD (LAPTOP ITEM) --- */
+.window-card {
+  background: #fff;
+  border-right: var(--brutal-border);
+  border-bottom: var(--brutal-border);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s;
+}
+.window-card:hover {
+  background: #fffef0;
+}
+
+.window-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: #666;
+}
+
+.window-dots {
+  display: flex;
+  gap: 4px;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+.window-visual {
+  aspect-ratio: 4/3;
+  background: #eee;
+  border: var(--brutal-border);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.meta-tag {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+  color: #555;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  color: #000;
+}
+
+.highlight-text {
+  background: #000;
+  color: #fff;
+  padding: 2px 6px;
+  display: inline;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.specs-list {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}

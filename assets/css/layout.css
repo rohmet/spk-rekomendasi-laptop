@@ -1,0 +1,49 @@
+/* Global Container */
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 120px; /* Sesuaikan dengan tinggi navbar */
+}
+
+/* --- HERO SECTION (EDITORIAL) --- */
+.editorial-hero {
+  text-align: center;
+  padding: 60px 0;
+  border-bottom: var(--brutal-border);
+  margin-bottom: 40px;
+}
+
+.big-title {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 10vw, 8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- GRID SYSTEM --- */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: var(--brutal-border);
+  border-left: var(--brutal-border);
+  margin-bottom: 60px;
+}
+
+@media (max-width: 900px) {
+  .editorial-grid {
+    grid-template-columns: 1fr;
+  }
+}
