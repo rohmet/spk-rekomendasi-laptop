@@ -62,4 +62,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }, 4000);
   }
+
+  // 5. MODAL DISMISS (Klik area kosong untuk tutup)
+  const modalOverlay = document.getElementById("modal-overlay");
+  if (modalOverlay) {
+    modalOverlay.addEventListener("click", function (e) {
+      if (e.target === this) {
+        window.location.href = "index.php?controller=admin&action=dashboard";
+      }
+    });
+  }
 });
