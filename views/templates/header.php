@@ -44,7 +44,6 @@
 </nav>
 
 <div class="container">
-    <div class="main-content">
 
 <script>
     function toggleMenu() {

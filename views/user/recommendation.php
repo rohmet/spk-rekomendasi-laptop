@@ -1,107 +1,121 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Cari Laptop Impian - SPK SAW</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; padding: 20px; }
-        .container { max-width: 900px; margin: auto; }
-        
-        /* Card Form */
-        .card-form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
-        .range-group { margin-bottom: 20px; }
-        .range-group label { display: block; font-weight: bold; margin-bottom: 10px; }
-        input[type=range] { width: 100%; }
-        
-        /* Table Style */
-        .result-table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .result-table th { background: #007bff; color: white; padding: 15px; text-align: left; }
-        .result-table td { padding: 15px; border-bottom: 1px solid #eee; }
-        .score-badge { background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
-        
-        .btn-hitung { background: #007bff; color: white; border: none; padding: 12px 25px; border-radius: 5px; font-size: 16px; cursor: pointer; width: 100%; }
-        .btn-hitung:hover { background: #0056b3; }
-        .nav-top { margin-bottom: 20px; text-align: right; }
-        .nav-top a { text-decoration: none; color: #555; margin-left: 15px; font-weight: bold; }
-    </style>
-</head>
-<body>
+<?php include 'views/templates/header.php'; ?>
+
+<section class="editorial-hero">
+    <div class="container" style="padding-top: 0;">
+        <h1 class="big-title">TECH<br>FINDER<span style="font-size:2rem; vertical-align:top;">TM</span></h1>
+        <p class="hero-subtitle">
+            "A modern algorithm designed to inform, filter, and recommend the best machines for your specific needs."
+        </p>
+    </div>
+</section>
 
 <div class="container">
-    <div class="nav-top">
-        <a href="index.php">🏠 Home</a>
 
-        <?php if(isset($_SESSION['user_id'])): ?>
-            <a href="index.php?controller=bookmark&action=index">❤️ Favorit</a>
+    <form method="POST">
+        <div class="control-panel">
+            <div class="panel-header">
+                <span><i class="fas fa-terminal"></i> SYSTEM_PREFERENCES_CONFIG</span>
+                <span>V.2.0</span>
+            </div>
             
-            <a href="index.php?controller=auth&action=logout">Logout</a>
-        <?php else: ?>
-            <a href="index.php?controller=auth&action=login">Login</a>
-        <?php endif; ?>
-    </div>
+            <div class="panel-body">
+                <div class="brutal-range">
+                    <label style="font-family: var(--font-sans); font-weight: bold; display: flex; justify-content: space-between;">
+                        <span>PRIORITAS HARGA</span>
+                        <span id="text_harga"><?php echo $b_harga; ?>%</span>
+                    </label>
+                    <input type="range" name="bobot_harga" min="0" max="100" value="<?php echo $b_harga; ?>" 
+                        oninput="document.getElementById('text_harga').innerText = this.value + '%'">
+                </div>
 
-    <div class="card-form">
-        <h2 style="text-align:center">🔍 Tentukan Prioritas Laptopmu</h2>
-        <p style="text-align:center; color:#666;">Geser slider sesuai kepentingan Anda. Total tidak harus 100%, sistem akan menyesuaikan.</p>
+                <div class="brutal-range">
+                    <label style="font-family: var(--font-sans); font-weight: bold; display: flex; justify-content: space-between;">
+                        <span>PRIORITAS RAM</span>
+                        <span id="text_ram"><?php echo $b_ram; ?>%</span>
+                    </label>
+                    <input type="range" name="bobot_ram" min="0" max="100" value="<?php echo $b_ram; ?>" 
+                        oninput="document.getElementById('text_ram').innerText = this.value + '%'">
+                </div>
+
+                <div class="brutal-range">
+                    <label style="font-family: var(--font-sans); font-weight: bold; display: flex; justify-content: space-between;">
+                        <span>PRIORITAS BERAT</span>
+                        <span id="text_berat"><?php echo $b_berat; ?>%</span>
+                    </label>
+                    <input type="range" name="bobot_berat" min="0" max="100" value="<?php echo $b_berat; ?>" 
+                        oninput="document.getElementById('text_berat').innerText = this.value + '%'">
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #000; padding: 20px; text-align: right; background: #fafafa;">
+                <button type="submit" name="hitung" class="btn-brutal">
+                    RUN ANALYSIS <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <?php if($submitted && !empty($laptops)): ?>
         
-        <form method="POST">
-            <div class="range-group">
-                <label>💰 Harga Murah (Low Cost) - Bobot: <span id="val_harga"><?php echo $b_harga; ?></span>%</label>
-                <input type="range" name="bobot_harga" min="0" max="100" value="<?php echo $b_harga; ?>" oninput="document.getElementById('val_harga').innerText = this.value">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #000;">
+            <h2 style="font-size: 2.5rem; margin: 0;">Analysis Results</h2>
+            <span style="font-family: var(--font-sans);">[ FOUND <?php echo count($laptops); ?> ENTRIES ]</span>
+        </div>
+
+        <div class="editorial-grid">
+            <?php 
+            $rank = 1;
+            foreach($laptops as $laptop): 
+                // Logika untuk menentukan label berdasarkan ranking
+                $label = ($rank == 1) ? "EDITOR'S CHOICE" : "RECOMMENDED";
+                $highlight_class = ($rank == 1) ? "highlight-text" : "";
+            ?>
+            
+            <div class="window-card">
+                <div class="window-header">
+                    <div class="window-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <span>NO. 00<?php echo $rank; ?></span>
+                </div>
+
+                <div class="window-visual">
+                    <i class="fas fa-laptop" style="font-size: 4rem; color: #ccc;"></i>
+                    <?php if($rank == 1): ?>
+                        <div style="position: absolute; bottom: 10px; left: 10px; background: #000; color: #fff; padding: 5px 10px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: bold;">
+                            HIGHEST SCORE
+                        </div>
+                    <?php endif; ?>
+                </div>
+
+                <div>
+                    <span class="meta-tag"><?php echo $label; ?> | <?php echo $laptop['brand']; ?></span>
+                    <h3 class="card-title">
+                        <span class="<?php echo $highlight_class; ?>">
+                            <?php echo $laptop['model_name']; ?>
+                        </span>
+                    </h3>
+                    <p style="font-family: var(--font-serif); font-size: 0.95rem; color: #444; margin-bottom: 20px;">
+                        Unit ini memiliki skor kecocokan <strong><?php echo number_format($laptop['skor_saw'], 4); ?></strong>. 
+                        Pilihan tepat untuk budget Rp <?php echo number_format($laptop['price'], 0, ',', '.'); ?>.
+                    </p>
+                </div>
+
+                <div class="specs-list">
+                    <span><i class="fas fa-memory"></i> <?php echo $laptop['ram_gb']; ?> GB</span>
+                    <span><i class="fas fa-hdd"></i> SSD</span>
+                    <span><i class="fas fa-weight-hanging"></i> Ringan</span>
+                </div>
             </div>
 
-            <div class="range-group">
-                <label>🚀 Performa / RAM Besar (High Spec) - Bobot: <span id="val_ram"><?php echo $b_ram; ?></span>%</label>
-                <input type="range" name="bobot_ram" min="0" max="100" value="<?php echo $b_ram; ?>" oninput="document.getElementById('val_ram').innerText = this.value">
-            </div>
+            <?php $rank++; endforeach; ?>
+        </div>
 
-            <div class="range-group">
-                <label>🪶 Ringan Dibawa (Low Weight) - Bobot: <span id="val_berat"><?php echo $b_berat; ?></span>%</label>
-                <input type="range" name="bobot_berat" min="0" max="100" value="<?php echo $b_berat; ?>" oninput="document.getElementById('val_berat').innerText = this.value">
-            </div>
-
-            <button type="submit" name="hitung" class="btn-hitung">🔥 Hitung Rekomendasi</button>
-        </form>
-    </div>
-
-    <?php if($submitted): ?>
-        <h3 style="margin-bottom:15px">🏆 Top 20 Hasil Rekomendasi Untukmu</h3>
-        <table class="result-table">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Laptop</th>
-                    <th>Harga</th>
-                    <th>RAM</th>
-                    <th>Berat</th>
-                    <th>Skor SAW</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $rank = 1; foreach($laptops as $laptop): ?>
-                <tr>
-                    <td>#<?php echo $rank++; ?></td>
-                    <td>
-                        <b><?php echo $laptop['brand']; ?></b><br>
-                        <small><?php echo $laptop['model_name']; ?></small>
-                    </td>
-                    <td>Rp <?php echo number_format($laptop['price'], 0, ',', '.'); ?></td>
-                    <td><?php echo $laptop['ram_gb']; ?> GB</td>
-                    <td><?php echo $laptop['weight_kg']; ?> Kg</td>
-                    <td><span class="score-badge"><?php echo number_format($laptop['skor_saw'], 4); ?></span></td>
-                    <td>
-                        <a href="index.php?controller=bookmark&action=simpan&id=<?php echo $laptop['id_laptop']; ?>" 
-                        style="background:#ffc107; color:black; padding:5px 10px; text-decoration:none; border-radius:4px; font-size:12px;">
-                        ★ Simpan
-                        </a>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
     <?php endif; ?>
+
+    <div style="height: 100px;"></div>
 </div>
 
-</body>
-</html>
+<?php include 'views/templates/footer.php'; ?>
