@@ -47,3 +47,176 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================
+   AUTH PAGES: EDITORIAL / MAGAZINE STYLE
+   ========================================= */
+
+.auth-body {
+  background-color: #fafafa; /* Abu-abu sangat muda (kertas bersih) */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: var(--font-sans);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 900px; /* Lebar untuk layout split (opsional) atau luas */
+  display: flex;
+  justify-content: center;
+}
+
+.auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 450px; /* Lebar kartu ideal */
+  padding: 60px 50px;
+  /* Tidak ada border tebal, ganti dengan shadow sangat halus */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Border sangat tipis */
+  text-align: center; /* Center layout untuk kesan elegan */
+  position: relative;
+}
+
+/* Garis dekorasi atas ala majalah */
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #000; /* Aksen minimalis */
+}
+
+/* Header Typography */
+.auth-brand {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #999;
+  display: block;
+}
+
+.auth-title {
+  font-family: var(--font-serif); /* Font Serif Elegan (Playfair Display) */
+  font-size: 2.5rem;
+  color: #111;
+  margin-bottom: 10px;
+  font-weight: 400; /* Tipis/Regular agar elegan */
+  line-height: 1.2;
+}
+
+.auth-subtitle {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Form Input - Clean Line Style */
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.editorial-input {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-bottom: 1px solid #e0e0e0; /* Garis abu tipis */
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  color: #000;
+}
+
+.editorial-input:focus {
+  outline: none;
+  border-bottom: 1px solid #000; /* Hitam saat fokus */
+}
+.editorial-input::placeholder {
+  color: #ccc;
+  font-weight: 300;
+}
+
+/* Button - Minimalist Black */
+.btn-editorial {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  width: 100%;
+  padding: 16px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* Spasi huruf lebar ala majalah fashion */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+.btn-editorial:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Alert Messages */
+.editorial-alert {
+  padding: 15px;
+  background: #fff5f5;
+  border-left: 3px solid #cc0000; /* Garis merah minimalis di kiri */
+  color: #cc0000;
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+/* Footer & Checkbox */
+.editorial-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+.editorial-check input {
+  accent-color: #000;
+}
+
+.auth-footer {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888;
+}
+.auth-footer a {
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.auth-footer a:hover {
+  border-bottom: 1px solid #000;
+}
