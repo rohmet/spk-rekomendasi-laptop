@@ -2,6 +2,10 @@
 spk-rekomendasi-laptop
 ├─ assets
 │  ├─ css
+│  │  ├─ base.css
+│  │  ├─ components.css
+│  │  ├─ layout.css
+│  │  ├─ navbar.css
 │  │  └─ style.css
 │  └─ js
 ├─ config
