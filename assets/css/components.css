@@ -145,3 +145,116 @@
   display: flex;
   justify-content: space-between;
 }
+
+/* =========================================
+   ADDITION: EDITORIAL TABLES & FOOTER
+   ========================================= */
+
+/* --- EDITORIAL TABLE (Untuk Dashboard) --- */
+.editorial-table-container {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #eee;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+}
+
+.editorial-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  text-align: left;
+}
+
+.editorial-table thead th {
+  background-color: #fafafa;
+  color: #111;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  padding: 20px;
+  border-bottom: 2px solid #000; /* Garis tegas di header */
+}
+
+.editorial-table tbody td {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.editorial-table tbody tr:hover {
+  background-color: #ffffef; /* Highlight kuning tipis ala kertas saat hover */
+}
+
+/* Primary Data (Judul Laptop) */
+.table-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: #000;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+}
+.table-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* Price Tag di Tabel */
+.table-price {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: #000;
+}
+
+/* Action Buttons Kecil */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  color: #555;
+  transition: all 0.2s;
+  margin-right: 5px;
+}
+.btn-icon:hover {
+  border-color: #000;
+  background: #000;
+  color: #fff;
+}
+.btn-icon.delete:hover {
+  border-color: #d00;
+  background: #d00;
+  color: #fff;
+}
+
+/* --- MINIMALIST FOOTER --- */
+.editorial-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 40px 20px;
+  text-align: center;
+  background: #fff;
+  margin-top: auto; /* Push ke bawah jika konten sedikit */
+}
+
+.footer-brand {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.footer-copy {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
