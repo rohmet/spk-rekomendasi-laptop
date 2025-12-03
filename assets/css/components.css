@@ -258,3 +258,27 @@
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* --- BUTTON REMOVE (Di Halaman Favorit) --- */
+.btn-remove-card {
+  text-align: center;
+  color: #d00; /* Warna merah */
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid #eee;
+  padding: 10px;
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  transition: all 0.2s;
+  background: transparent;
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.btn-remove-card:hover {
+  background: #fff0f0; /* Merah muda sangat tipis saat hover */
+  border-color: #d00;
+  color: #a00;
+}

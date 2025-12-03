@@ -38,11 +38,9 @@
                         </div>
 
                         <a href="index.php?controller=bookmark&action=delete&id=<?php echo $row['id_bookmark']; ?>" 
-                           onclick="return confirm('Remove this item from your collection?')"
-                           style="text-align: center; color: #d00; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; border: 1px solid #eee; padding: 10px; display: block; transition: all 0.2s;"
-                           onmouseover="this.style.background='#fff0f0'"
-                           onmouseout="this.style.background='transparent'">
-                           <i class="fas fa-times"></i> Remove Item
+                            class="btn-remove-card btn-confirm-delete"
+                            data-message="Hapus laptop ini dari koleksi favorit Anda?">
+                            <i class="fas fa-times"></i> Remove Item
                         </a>
                     </div>
                 </div>

@@ -70,8 +70,8 @@ require 'views/templates/header.php';
                             </a>
 
                             <a href="index.php?controller=admin&action=delete&id=<?= $laptop['id_laptop']; ?>" 
-                               class="btn-icon delete" title="Delete Data"
-                               onclick="return confirm('Are you sure you want to delete <?= htmlspecialchars($laptop['model_name']); ?>?')">
+                                class="btn-icon delete btn-confirm-delete" 
+                                data-message="Apakah Anda yakin ingin menghapus data <?= htmlspecialchars($laptop['model_name']); ?> secara permanen?">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>

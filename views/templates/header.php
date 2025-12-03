@@ -15,7 +15,7 @@
         <a href="index.php" class="nav-logo">comel<span style="color:#FF4F18">.</span></a>
     </div>
 
-    <button class="mobile-menu-btn" onclick="toggleMenu()">
+    <button class="mobile-menu-btn" id="mobile-menu-btn">
         <i class="fas fa-bars"></i>
     </button>
         
@@ -44,10 +44,3 @@
 </nav>
 
 <div class="container">
-
-<script>
-    function toggleMenu() {
-        const nav = document.getElementById('navLinks');
-        nav.classList.toggle('active');
-    }
-</script>

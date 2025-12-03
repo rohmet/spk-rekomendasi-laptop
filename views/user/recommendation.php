@@ -24,8 +24,12 @@
                         <span>PRIORITAS HARGA</span>
                         <span id="text_harga"><?php echo $b_harga; ?>%</span>
                     </label>
-                    <input type="range" name="bobot_harga" min="0" max="100" value="<?php echo $b_harga; ?>" 
-                        oninput="document.getElementById('text_harga').innerText = this.value + '%'">
+                    <input type="range" 
+                        name="bobot_harga" 
+                        class="live-slider" 
+                        data-target="text_harga" 
+                        min="0" max="100" 
+                        value="<?php echo $b_harga; ?>">
                 </div>
 
                 <div class="brutal-range">
@@ -33,8 +37,12 @@
                         <span>PRIORITAS RAM</span>
                         <span id="text_ram"><?php echo $b_ram; ?>%</span>
                     </label>
-                    <input type="range" name="bobot_ram" min="0" max="100" value="<?php echo $b_ram; ?>" 
-                        oninput="document.getElementById('text_ram').innerText = this.value + '%'">
+                    <input type="range" 
+                        name="bobot_ram" 
+                        class="live-slider" 
+                        data-target="text_ram" 
+                        min="0" max="100" 
+                        value="<?php echo $b_ram; ?>">
                 </div>
 
                 <div class="brutal-range">
@@ -42,8 +50,12 @@
                         <span>PRIORITAS BERAT</span>
                         <span id="text_berat"><?php echo $b_berat; ?>%</span>
                     </label>
-                    <input type="range" name="bobot_berat" min="0" max="100" value="<?php echo $b_berat; ?>" 
-                        oninput="document.getElementById('text_berat').innerText = this.value + '%'">
+                    <input type="range" 
+                        name="bobot_berat" 
+                        class="live-slider" 
+                        data-target="text_berat" 
+                        min="0" max="100" 
+                        value="<?php echo $b_berat; ?>">
                 </div>
             </div>
 

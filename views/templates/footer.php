@@ -8,12 +8,7 @@
     </div>
 </footer>
 
-<script>
-    function toggleMenu() {
-        const nav = document.getElementById('navLinks');
-        nav.classList.toggle('active');
-    }
-</script>
+<script src="assets/js/main.js"></script>
 
 </body>
 </html>
