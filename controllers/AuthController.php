@@ -31,7 +31,7 @@ class AuthController {
                 $_SESSION['role'] = $user['role'];
 
                 if ($remember) {
-                    setcookie('user_login', $user['id_user'], time() + (86400 * 30), "/");
+                    setcookie('user_login', $user['id_user'], time() + (120), "/");
                 }
 
                 // Redirect sesuai Role

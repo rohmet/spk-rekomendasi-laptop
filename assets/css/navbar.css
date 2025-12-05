@@ -34,6 +34,10 @@
   display: flex;
   gap: 8px;
   align-items: center;
+
+  margin: 6px !important; /* Menghapus margin bawah bawaan ul */
+  padding: 10px !important; /* Menghapus padding kiri bawaan ul */
+  list-style: none;
 }
 
 .nav-links li a:not(.nav-btn) {
@@ -44,9 +48,14 @@
   border-radius: 8px;
   transition: all 0.2s;
   white-space: nowrap;
+
+  text-decoration: none;
 }
 .nav-links li a:not(.nav-btn):hover {
   background: var(--nav-hover);
+
+  color: #ffffff; /* Memaksa warna tetap putih */
+  text-decoration: none;
 }
 
 .nav-btn {

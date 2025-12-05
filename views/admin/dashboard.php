@@ -3,6 +3,7 @@
 require 'views/templates/header.php'; 
 ?>
 
+
 <div class="container">
     
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; border-bottom: 1px solid #000; padding-bottom: 20px;">
@@ -17,15 +18,17 @@ require 'views/templates/header.php';
             <i class="fas fa-plus"></i> Add New Unit
         </a>
     </div>
-
+    
     <?php if (isset($_GET['msg'])): ?>
-        <div class="editorial-alert" style="border-left-color: #28a745; color: #155724; background: #d4edda; margin-bottom: 30px;">
-            <i class="fas fa-check-circle"></i> <?= htmlspecialchars($_GET['msg']); ?>
+        <div class="alert alert-success d-flex align-items-center rounded-0 border-dark" role="alert">
+            <i class="fas fa-check-circle me-2"></i> <div>
+                <?= htmlspecialchars($_GET['msg']); ?>
+            </div>
         </div>
-    <?php endif; ?>
-
-    <div class="editorial-table-container">
-        <table class="editorial-table">
+        <?php endif; ?>
+        
+    <div class="table-responsive shadow-sm"> 
+        <table class="table table-hover align-middle editorial-table">
             <thead>
                 <tr>
                     <th width="5%">No.</th>

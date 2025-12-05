@@ -8,7 +8,6 @@ class LaptopController {
         $this->model = new Laptop();
     }
 
-    // Menangani Halaman Utama & Rekomendasi (Pindahan dari index.php)
     public function index() {
         $laptops = [];
         $submitted = false;
@@ -24,7 +23,6 @@ class LaptopController {
             $b_ram   = $_POST['bobot_ram'];
             $b_berat = $_POST['bobot_berat'];
 
-            // Panggil Model untuk hitung SAW
             $laptops = $this->model->getRecommendation($b_harga/100, $b_ram/100, $b_berat/100);
         }
 
