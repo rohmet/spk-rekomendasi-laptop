@@ -1,8 +1,6 @@
 <?php 
-// 1. Panggil Header
 require 'views/templates/header.php'; 
 ?>
-
 
 <div class="container">
     
@@ -117,6 +115,5 @@ require 'views/templates/header.php';
 </div>
 
 <?php 
-// 2. Panggil Footer
 require 'views/templates/footer.php'; 
 ?>

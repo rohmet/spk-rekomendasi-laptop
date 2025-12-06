@@ -78,7 +78,6 @@
             <?php 
             $rank = 1;
             foreach($laptops as $laptop): 
-                // Logika untuk menentukan label berdasarkan ranking
                 $label = ($rank == 1) ? "EDITOR'S CHOICE" : "RECOMMENDED";
                 $highlight_class = ($rank == 1) ? "highlight-text" : "";
             ?>
@@ -91,6 +90,12 @@
                         <div class="dot"></div>
                     </div>
                     <span>NO. 00<?php echo $rank; ?></span>
+
+                    <a href="index.php?controller=bookmark&action=simpan&id=<?= $laptop['id_laptop']; ?>" 
+                        class="btn-icon-love" 
+                        title="Simpan ke Favorit">
+                        <i class="far fa-heart"></i>
+                    </a>
                 </div>
 
                 <div class="window-visual">

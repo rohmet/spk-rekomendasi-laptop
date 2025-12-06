@@ -8,6 +8,7 @@ spk-rekomendasi-laptop
 │  │  ├─ navbar.css
 │  │  └─ style.css
 │  └─ js
+│     └─ main.js
 ├─ config
 │  └─ database.php
 ├─ controllers
