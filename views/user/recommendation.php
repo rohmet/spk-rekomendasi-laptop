@@ -1,10 +1,10 @@
 <?php include 'views/templates/header.php'; ?>
 
 <section class="editorial-hero">
-    <div class="container" style="padding-top: 0;">
-        <h1 class="big-title">TECH<br>FINDER<span style="font-size:2rem; vertical-align:top;">TM</span></h1>
+    <div class="container" style="padding-top: 110px;">
+        <h1 class="big-title">LAPTOP<br>FINDER<span style="font-size:2rem; vertical-align:top;">TM</span></h1>
         <p class="hero-subtitle">
-            "A modern algorithm designed to inform, filter, and recommend the best machines for your specific needs."
+            "Temukan laptop terbaik sesuai kebutuhan, budget, performa, dan berat."
         </p>
     </div>
 </section>
@@ -15,7 +15,6 @@
         <div class="control-panel">
             <div class="panel-header">
                 <span><i class="fas fa-terminal"></i> SYSTEM_PREFERENCES_CONFIG</span>
-                <span>V.2.0</span>
             </div>
             
             <div class="panel-body">
@@ -83,6 +82,7 @@
             ?>
             
             <div class="window-card">
+                
                 <div class="window-header">
                     <div class="window-dots">
                         <div class="dot"></div>
@@ -90,23 +90,14 @@
                         <div class="dot"></div>
                     </div>
                     <span>NO. 00<?php echo $rank; ?></span>
-
+                    
                     <a href="index.php?controller=bookmark&action=simpan&id=<?= $laptop['id_laptop']; ?>" 
-                        class="btn-icon-love" 
-                        title="Simpan ke Favorit">
-                        <i class="far fa-heart"></i>
-                    </a>
-                </div>
-
-                <div class="window-visual">
-                    <i class="fas fa-laptop" style="font-size: 4rem; color: #ccc;"></i>
-                    <?php if($rank == 1): ?>
-                        <div style="position: absolute; bottom: 10px; left: 10px; background: #000; color: #fff; padding: 5px 10px; font-family: var(--font-sans); font-size: 0.7rem; font-weight: bold;">
-                            HIGHEST SCORE
-                        </div>
-                    <?php endif; ?>
-                </div>
-
+                    class="btn-icon-love" 
+                    title="Simpan ke Favorit">
+                    <i class="far fa-heart"></i>
+                </a>
+            </div>
+                
                 <div>
                     <span class="meta-tag"><?php echo $label; ?> | <?php echo $laptop['brand']; ?></span>
                     <h3 class="card-title">
@@ -116,13 +107,13 @@
                     </h3>
                     <p style="font-family: var(--font-serif); font-size: 0.95rem; color: #444; margin-bottom: 20px;">
                         Unit ini memiliki skor kecocokan <strong><?php echo number_format($laptop['skor_saw'], 4); ?></strong>. 
-                        Pilihan tepat untuk budget Rp <?php echo number_format($laptop['price'], 0, ',', '.'); ?>.
+                        Pilihan tepat untuk budget Rp <b><?php echo number_format($laptop['price'], 0, ',', '.'); ?></b>.
                     </p>
                 </div>
-
+                
                 <div class="specs-list">
                     <span><i class="fas fa-memory"></i> <?php echo $laptop['ram_gb']; ?> GB</span>
-                    <span><i class="fas fa-hdd"></i> SSD</span>
+                    <span><i class="fas fa-hdd"></i> <?php echo $laptop['memory_type']; ?></span>
                     <span><i class="fas fa-weight-hanging"></i> Ringan</span>
                 </div>
             </div>

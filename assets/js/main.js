@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // 1. NAVIGATION BAR TOGGLE (Mobile)
+  // NAVIGATION BAR TOGGLE (Mobile)
   const menuBtn = document.getElementById("mobile-menu-btn");
   const navLinks = document.getElementById("navLinks");
 
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 2. RANGE SLIDER LIVE UPDATE (Halaman Rekomendasi)
+  // RANGE SLIDER LIVE UPDATE (Halaman Rekomendasi)
   const sliders = document.querySelectorAll(".live-slider");
 
   sliders.forEach((slider) => {

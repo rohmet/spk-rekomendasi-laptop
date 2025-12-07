@@ -1,4 +1,4 @@
-</div> <footer class="editorial-footer">
+<footer class="editorial-footer">
     <div class="footer-content">
         <span class="footer-brand">COMEL.</span>
         <p class="footer-copy">
