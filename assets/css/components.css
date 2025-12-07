@@ -151,13 +151,6 @@
    ========================================= */
 
 /* --- EDITORIAL TABLE (Untuk Dashboard) --- */
-.editorial-table-container {
-  overflow-x: auto;
-  background: #fff;
-  border: 1px solid #eee;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
-}
-
 .editorial-table {
   width: 100%;
   border-collapse: collapse;
