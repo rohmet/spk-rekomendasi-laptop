@@ -28,20 +28,18 @@
                 <input type="text" name="processor" id="processor" class="editorial-input" placeholder="e.g. Intel Core i7 / M2 Chip" required>
             </div>
 
-            <div class="form-grid">
-                <div class="form-group">
-                    <label class="form-label" for="price">Harga (IDR)</label>
-                    <input type="number" name="price" id="price" class="editorial-input" placeholder="0" required>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <label class="form-label">HARGA (IDR)</label>
+                    <input type="number" name="price" class="form-control" style="border:none; border-bottom:1px solid #000; border-radius:0;">
                 </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="ram_gb">RAM (GB)</label>
-                    <input type="number" name="ram_gb" id="ram_gb" class="editorial-input" placeholder="0" step="0.1" required>
+                <div class="col-md-3 mb-4">
+                    <label class="form-label">RAM (GB)</label>
+                    <input type="number" name="ram_gb" class="form-control" ...>
                 </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="weight_kg">Berat (Kg)</label>
-                    <input type="number" name="weight_kg" id="weight_kg" class="editorial-input" placeholder="0.0" step="0.01" required>
+                <div class="col-md-3 mb-4">
+                    <label class="form-label">BERAT (KG)</label>
+                    <input type="number" name="weight_kg" class="form-control" ...>
                 </div>
             </div>
 

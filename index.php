@@ -19,8 +19,6 @@ switch ($controllerName) {
         $controller = new LaptopController();
         if ($action == 'index') {
             $controller->index();
-        } elseif ($action == 'delete') {
-            $controller->delete($id);
         }
         break;
 

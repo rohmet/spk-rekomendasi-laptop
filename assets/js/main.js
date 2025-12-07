@@ -50,9 +50,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // AUTO DISMISS ALERTS (Pesan Sukses/Error)
-  const alerts = document.querySelectorAll(".editorial-alert, .alert");
-
+  const alerts = document.querySelectorAll(
+    ".editorial-alert, .alert, .alert-success, .alert-danger, .alert-warning"
+  );
   if (alerts.length > 0) {
+    if (window.history.replaceState) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("msg");
+      window.history.replaceState(null, "", url.toString());
+    }
+
     setTimeout(() => {
       alerts.forEach((alert) => {
         alert.style.transition = "opacity 0.5s ease";
