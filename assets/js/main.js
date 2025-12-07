@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. GLOBAL DELETE CONFIRMATION
+  // GLOBAL DELETE CONFIRMATION
   const deleteButtons = document.querySelectorAll(".btn-confirm-delete");
 
   deleteButtons.forEach((button) => {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. AUTO DISMISS ALERTS (Pesan Sukses/Error)
+  // AUTO DISMISS ALERTS (Pesan Sukses/Error)
   const alerts = document.querySelectorAll(".editorial-alert, .alert");
 
   if (alerts.length > 0) {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 4000);
   }
 
-  // 5. MODAL DISMISS (Klik area kosong untuk tutup)
+  // MODAL DISMISS (Klik area kosong untuk tutup)
   const modalOverlay = document.getElementById("modal-overlay");
   if (modalOverlay) {
     modalOverlay.addEventListener("click", function (e) {

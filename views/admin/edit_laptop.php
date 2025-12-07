@@ -8,9 +8,9 @@
             <span>ID: #<?= $laptop['id_laptop']; ?></span>
         </div>
 
-        <h2 class="modal-title">Edit Specs.</h2>
+        <h2 class="modal-title">Edit Spesifikasi.</h2>
         <p class="modal-subtitle">
-            Updating data for: <strong><?= htmlspecialchars($laptop['brand'] . ' ' . $laptop['model_name']); ?></strong>.
+            Memperbarui data untuk: <strong><?= htmlspecialchars($laptop['brand'] . ' ' . $laptop['model_name']); ?></strong>.
         </p>
 
         <form action="index.php?controller=admin&action=update&id=<?= $laptop['id_laptop']; ?>" method="POST">
@@ -55,11 +55,11 @@
 
             <div style="margin-top: 30px;">
                 <button type="submit" class="btn-editorial">
-                    Update Specification
+                    Perbarui Spesifikasi
                 </button>
                 
                 <a href="index.php?controller=admin&action=dashboard" class="btn-text-cancel">
-                    Discard Changes
+                    Batal & Kembali ke Dashboard
                 </a>
             </div>
         </form>

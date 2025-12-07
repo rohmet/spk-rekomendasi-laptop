@@ -14,7 +14,6 @@
             <span class="auth-brand">MEMBERSHIP</span>
 
             <h1 class="auth-title">Join the Club.</h1>
-            <p class="auth-subtitle">Create an account to curate your favorite tech recommendations.</p>
             
             <?php if (!empty($error_message)): ?>
                 <div class="editorial-alert">
@@ -25,17 +24,17 @@
             <form action="" method="POST">
                 <div class="form-group">
                     <label class="form-label" for="username">Username</label>
-                    <input type="text" name="username" id="username" class="editorial-input" placeholder="Choose a unique username" required>
+                    <input type="text" name="username" id="username" class="editorial-input" placeholder="Pilih username unik" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="password">Password</label>
-                    <input type="password" name="password" id="password" class="editorial-input" placeholder="Min. 6 characters" required>
+                    <input type="password" name="password" id="password" class="editorial-input" placeholder="minimal 6 karakter" required>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label" for="confirm_password">Confirm Password</label>
-                    <input type="password" name="confirm_password" id="confirm_password" class="editorial-input" placeholder="Repeat your password" required>
+                    <input type="password" name="confirm_password" id="confirm_password" class="editorial-input" placeholder="Ulangi kata sandi Anda" required>
                 </div>
 
                 <button type="submit" class="btn-editorial">
@@ -44,7 +43,7 @@
             </form>
             
             <div class="auth-footer">
-                Already a member? <a href="index.php?controller=auth&action=login">Sign In</a>
+                Sudah punya akun? <a href="index.php?controller=auth&action=login">Masuk</a>
             </div>
         </div>
     </div>

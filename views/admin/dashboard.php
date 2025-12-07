@@ -9,11 +9,11 @@ require 'views/templates/header.php';
             <span style="font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #888;">Admin Control</span>
             <h2 style="font-family: var(--font-serif); font-size: 2rem; margin: 5px 0;">Data Inventory.</h2>
             <p class="header-meta" style="margin: 0; color: #666;">
-                Total Database: <b><?= isset($total_records) ? number_format($total_records) : 0; ?></b> units registered.
+                Total Database: <b><?= isset($total_records) ? number_format($total_records) : 0; ?></b> units.
             </p>
         </div>
         <a href="index.php?controller=admin&action=create" class="btn-editorial" style="width: auto; padding: 12px 25px;">
-            <i class="fas fa-plus"></i> Add New Unit
+            <i class="fas fa-plus"></i> Tambah Unit Baru
         </a>
     </div>
     

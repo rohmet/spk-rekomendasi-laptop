@@ -1,6 +1,8 @@
 <?php include 'views/templates/header.php'; ?>
 
 <div class="container">
+    <div style="height: 60px;"></div>
+    
     <div style="border-bottom: 1px solid #000; margin-bottom: 40px; padding-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end;">
         <div>
             <span style="font-family: var(--font-sans); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; color: #888;">My Collection</span>

@@ -8,8 +8,8 @@
             <span><?php echo date('d.m.Y'); ?></span>
         </div>
 
-        <h2 class="modal-title">New Entry.</h2>
-        <p class="modal-subtitle">Add a new machine to the database. Please ensure all specifications are accurate.</p>
+        <h2 class="modal-title">Laptop baru.</h2>
+        <p class="modal-subtitle">Tambahkan mesin baru ke database. Pastikan semua spesifikasi akurat.</p>
 
         <form action="index.php?controller=admin&action=store" method="POST">
             
@@ -30,7 +30,7 @@
 
             <div class="form-grid">
                 <div class="form-group">
-                    <label class="form-label" for="price">Price (IDR)</label>
+                    <label class="form-label" for="price">Harga (IDR)</label>
                     <input type="number" name="price" id="price" class="editorial-input" placeholder="0" required>
                 </div>
                 
@@ -40,18 +40,18 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label" for="weight_kg">Weight (Kg)</label>
+                    <label class="form-label" for="weight_kg">Berat (Kg)</label>
                     <input type="number" name="weight_kg" id="weight_kg" class="editorial-input" placeholder="0.0" step="0.01" required>
                 </div>
             </div>
 
             <div style="margin-top: 30px;">
                 <button type="submit" class="btn-editorial">
-                    Save Configuration
+                    Simpan Konfigurasi
                 </button>
                 
                 <a href="index.php?controller=admin&action=dashboard" class="btn-text-cancel">
-                    Cancel & Return to Dashboard
+                    Batal & Kembali ke Dashboard
                 </a>
             </div>
         </form>

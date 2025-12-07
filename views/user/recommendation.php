@@ -109,6 +109,9 @@
                         Unit ini memiliki skor kecocokan <strong><?php echo number_format($laptop['skor_saw'], 4); ?></strong>. 
                         Pilihan tepat untuk budget Rp <b><?php echo number_format($laptop['price'], 0, ',', '.'); ?></b>.
                     </p>
+                    <p style="font-family: var(--font-serif); font-size: 0.95rem; color: #444; margin-bottom: 20px;">
+                        Processor laptop <strong><?php echo htmlspecialchars($laptop['processor']); ?></strong>.
+                    </p>
                 </div>
                 
                 <div class="specs-list">
