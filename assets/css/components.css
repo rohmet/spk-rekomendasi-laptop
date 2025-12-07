@@ -44,21 +44,36 @@
 }
 
 /* --- INPUT RANGE CUSTOM --- */
-.brutal-range input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 2px;
-  background: #000;
-  margin-top: 15px;
-}
-.brutal-range input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
+.form-range::-webkit-slider-thumb {
+  background: #ce3000;
+  border-radius: 0;
   width: 20px;
   height: 20px;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.form-range::-webkit-slider-thumb:active {
   background: #000;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  background-color: #ddd;
+}
+
+.badge-score {
+  background-color: #000;
+  color: #fff;
   border: 1px solid #000;
-  cursor: pointer;
-  border-radius: 0;
+  font-family: var(--font-sans);
+  letter-spacing: 1px;
+  padding: 8px 12px;
+}
+
+.badge-price {
+  background-color: #ce3000;
+  color: #fff;
+  border: 1px solid #c22d00;
+  padding: 8px 12px;
 }
 
 /* --- WINDOW CARD (LAPTOP ITEM) --- */

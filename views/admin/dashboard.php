@@ -16,14 +16,19 @@ require 'views/templates/header.php';
             <i class="fas fa-plus"></i> Tambah Unit Baru
         </a>
     </div>
-    
+
     <?php if (isset($_GET['msg'])): ?>
-        <div class="alert alert-success d-flex align-items-center rounded-0 border-dark" role="alert">
-            <i class="fas fa-check-circle me-2"></i> <div>
-                <?= htmlspecialchars($_GET['msg']); ?>
+        <div class="alert alert-success alert-dismissible fade show editorial-alert shadow-sm" role="alert" style="border-radius: 0; border-left: 5px solid #000;">
+            <div style="display: flex; align-items: center;">
+                <i class="fas fa-check-circle me-3" style="font-size: 1.2rem;"></i>
+                <div>
+                    <strong>SUCCESS.</strong><br>
+                    <?= htmlspecialchars($_GET['msg']); ?>
+                </div>
             </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-        <?php endif; ?>
+    <?php endif; ?>
         
     <div class="table-responsive shadow-sm"> 
         <table class="table table-hover align-middle editorial-table">

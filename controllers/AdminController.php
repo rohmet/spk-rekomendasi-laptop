@@ -86,7 +86,8 @@ class AdminController {
 
     public function delete($id) {
         if ($this->laptopModel->deleteLaptop($id)) {
-            header("Location: index.php?controller=admin&action=index");
+            $pesan = urlencode("Data berhasil dihapus dari sistem. dari admin controller");
+            header("Location: index.php?controller=admin&action=index&msg=" . $pesan);
         } else {
             echo "Gagal menghapus data.";
         }

@@ -26,21 +26,6 @@ class LaptopController {
             $laptops = $this->model->getRecommendation($b_harga/100, $b_ram/100, $b_berat/100);
         }
 
-        // Load View
         require 'views/user/recommendation.php'; 
-    }
-
-    // Menangani Hapus Laptop (Pindahan dari hapus_laptop.php)
-    public function delete($id) {
-        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
-            header("Location: index.php?controller=auth&action=login");
-            exit;
-        }
-
-        if ($this->model->deleteLaptop($id)) {
-            header("Location: index.php?controller=admin&action=dashboard");
-        } else {
-            echo "Gagal menghapus data.";
-        }
     }
 }
